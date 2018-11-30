@@ -4,16 +4,16 @@
 
 import {Column, Entity, PrimaryColumn} from 'typeorm';
 
-// `id`, `billing_id`, `device_id`, `coor`, `state`
+// `id`, `billingid`, `device_id`, `parent_device_id`
 
 @Entity()
-export class LanbMapsCoor {
+export class MapDeviceTree {
 
     @PrimaryColumn()
     public id: number;
 
     @Column({
-        name: 'billing_id',
+        name: 'billingid',
         type: 'int',
     })
     public billingId: number;
@@ -25,15 +25,9 @@ export class LanbMapsCoor {
     public deviceId: number;
 
     @Column({
-        name: 'coors',
-        type: 'varchar',
-        length: 255,
-    })
-    public coors: string;
-
-    @Column({
-        name: 'state',
+        name: 'parent_device_id',
         type: 'int',
     })
-    public state: number;
+    public parentDeviceId: number;
+
 }

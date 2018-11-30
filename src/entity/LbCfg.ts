@@ -2,7 +2,7 @@
  * Copyright (c) 2018.  Igor Khorev, Orangem.me, igorhorev@gmail.com
  */
 
-import {Column, Entity, PrimaryColumn, PrimaryGeneratedColumn} from 'typeorm';
+import {Column, Entity, PrimaryColumn} from 'typeorm';
 
 // `id`,
 // `sname`, `host`, `basename`, `username`, `pass`,
@@ -12,73 +12,84 @@ import {Column, Entity, PrimaryColumn, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
 export class LbCfg {
-    @PrimaryGeneratedColumn()
+    @PrimaryColumn()
     public id: number;
 
     @Column({
+        name: 'sname',
         type: 'varchar',
         length: 255,
     })
-    public sname: string;
+    public sName: string;
 
     @Column({
+        name: 'host',
         type: 'varchar',
         length: 255,
     })
     public host: string;
 
     @Column({
+        name: 'basename',
         type: 'varchar',
         length: 255,
     })
     public basename: string;
 
     @Column({
+        name: 'username',
         type: 'varchar',
         length: 255,
     })
     public username: string;
 
     @Column({
+        name: 'pass',
         type: 'varchar',
         length: 255,
     })
     public pass: string;
 
     @Column({
+        name: 'failhost',
         type: 'varchar',
         length: 20,
     })
-    public failhost: string;
+    public failHost: string;
 
     @Column({
+        name: 'soap_login',
         type: 'varchar',
         length: 100,
     })
-    public soap_login: string;
+    public soapLogin: string;
 
     @Column({
+        name: 'soap_password',
         type: 'varchar',
         length: 100,
     })
-    public soap_password: string;
+    public soapPassword: string;
 
     @Column({
+        name: 'soap_file',
         type: 'varchar',
         length: 100,
     })
-    public soap_file: string;
+    public soapFile: string;
 
     @Column({
+        name: 'smssender',
         type: 'varchar',
         length: 50,
     })
-    public smssender: string;
+    public smsSender: string;
 
     @Column({
+        name: 'vibersender',
         type: 'varchar',
         length: 20,
     })
-    public vibersender: string;
+    public viberSender: string;
 
 }
