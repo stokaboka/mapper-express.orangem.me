@@ -1,11 +1,16 @@
 
+import * as bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
+import {Request, Response} from 'express';
 import log4js from 'log4js';
 import path from 'path';
 
+
+import routes from './routes/index';
+
 import dataProviderRouter from './routes/dataProvider';
-import indexRouter from './routes/index';
+import hello from './routes/hello';
 import mapperRouter from './routes/mapper';
 
 const log = log4js.getLogger('app');
@@ -16,6 +21,7 @@ app.use(log4js.connectLogger(log4js.getLogger('http'), { level: 'auto' }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.use((req, res, next) => {
@@ -24,8 +30,21 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/', indexRouter);
+app.use('/', hello);
 app.use('/mapper', mapperRouter);
 app.use('/dp', dataProviderRouter);
+
+// register express routes from defined application routes
+routes.forEach((route: any) => {
+    (app as any)[route.method](route.route, (req: Request, res: Response, next: void) => {
+        const result = (new (route.controller as any))[route.action](req, res, next);
+        if (result instanceof Promise) {
+            result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
+
+        } else if (result !== null && result !== undefined) {
+            res.json(result);
+        }
+    });
+});
 
 export default app;
