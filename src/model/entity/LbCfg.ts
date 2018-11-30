@@ -11,7 +11,7 @@ import {Column, Entity, PrimaryColumn} from 'typeorm';
 // `smssender`, `vibersender`
 
 @Entity()
-export class LbCfg {
+export default class LbCfg {
     @PrimaryColumn()
     public id: number;
 

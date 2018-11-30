@@ -7,7 +7,7 @@ import {Column, Entity, PrimaryColumn} from 'typeorm';
 // `id`, `billingid`, `device_id`, `name`, `ip`, `uptime`, `address`, `public`, `group_id`
 
 @Entity()
-export class MapDevices {
+export default class MapDevices {
 
     @PrimaryColumn()
     public id: number;

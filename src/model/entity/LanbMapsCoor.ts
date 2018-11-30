@@ -7,7 +7,7 @@ import {Column, Entity, PrimaryColumn} from 'typeorm';
 // `id`, `billing_id`, `device_id`, `coor`, `state`
 
 @Entity()
-export class LanbMapsCoor {
+export default class LanbMapsCoor {
 
     @PrimaryColumn()
     public id: number;

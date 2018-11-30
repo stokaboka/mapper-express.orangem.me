@@ -7,7 +7,7 @@ import {Column, Entity, PrimaryColumn} from 'typeorm';
 // `id`, `billingid`, `device_id`, `parent_device_id`
 
 @Entity()
-export class MapDeviceTree {
+export default class MapDeviceTree {
 
     @PrimaryColumn()
     public id: number;

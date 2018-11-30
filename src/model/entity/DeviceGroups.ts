@@ -7,7 +7,7 @@ import {Column, Entity, PrimaryColumn} from 'typeorm';
 // `id`, `billingid`, `group_id`, `name`, `desc`, `coors`
 
 @Entity()
-export class DeviceGroups {
+export default class DeviceGroups {
 
     @PrimaryColumn()
     public id: number;
