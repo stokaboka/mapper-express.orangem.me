@@ -2,36 +2,37 @@
  * Copyright (c) 2018.  Igor Khorev, Orangem.me, igorhorev@gmail.com
  */
 
-import {Entity, Column, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryColumn, PrimaryGeneratedColumn} from 'typeorm';
+
+// `id`, `billingid`, `group_id`, `name`, `desc`, `coors`
 
 @Entity()
 export class DeviceGroups {
 
     @PrimaryGeneratedColumn()
-    id: Number;
+    public id: number;
 
     @Column('int')
-    billingid: Number;
+    public billingid: number;
 
     @Column('int')
-    group_id: Number;
+    public group_id: number;
 
     @Column({
-        type: "varchar",
-        length: 255
+        type: 'varchar',
+        length: 255,
     })
-    name: string;
+    public name: string;
 
     @Column({
-        type: "varchar",
-        length: 255
+        type: 'varchar',
+        length: 255,
     })
-    desc: string;
+    public desc: string;
 
     @Column({
-        type: "varchar",
-        length: 255
+        type: 'varchar',
+        length: 255,
     })
-    coors: string;
+    public coors: string;
 }
-

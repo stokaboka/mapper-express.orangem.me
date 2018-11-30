@@ -111,4 +111,6 @@ function onListening() {
 
     // @ts-ignore
     log.info(`Express server listening on port:${server.address().port} with pid:${process.pid}` );
+    // @ts-ignore
+    console.info(`Express server listening on port:${server.address().port} with pid:${process.pid}` );
 }
