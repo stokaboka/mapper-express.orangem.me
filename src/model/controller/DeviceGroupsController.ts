@@ -6,7 +6,7 @@ import {getRepository} from 'typeorm';
 import DeviceGroups from '../entity/DeviceGroups';
 import DBController from './DBController';
 
-export class DeviceGroupsController extends DBController {
+export default class DeviceGroupsController extends DBController {
 
     constructor() {
         super(getRepository(DeviceGroups));

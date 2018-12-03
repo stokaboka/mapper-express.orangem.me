@@ -6,7 +6,7 @@ import {getRepository} from 'typeorm';
 import LbCfg from '../entity/LbCfg';
 import DBController from './DBController';
 
-export class LbCfgController extends DBController {
+export default class LbCfgController extends DBController {
 
     constructor() {
         super(getRepository(LbCfg));

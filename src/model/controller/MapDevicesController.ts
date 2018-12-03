@@ -6,7 +6,7 @@ import {getRepository} from 'typeorm';
 import MapDevices from '../entity/MapDevices';
 import DBController from './DBController';
 
-export class MapDevicesController extends DBController {
+export default class MapDevicesController extends DBController {
 
     constructor() {
         super(getRepository(MapDevices));

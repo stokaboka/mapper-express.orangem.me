@@ -6,7 +6,7 @@ import {getRepository} from 'typeorm';
 import LanbMapsCoor from '../entity/LanbMapsCoor';
 import DBController from './DBController';
 
-export class LanbMapsCoorController extends DBController {
+export default class LanbMapsCoorController extends DBController {
 
     constructor() {
         super(getRepository(LanbMapsCoor));

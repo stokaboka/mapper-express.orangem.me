@@ -8,7 +8,7 @@ const router = express.Router();
 import DataProvider from '../lib/mapper/DataProvider';
 
 const ERRORS_MESSAGES = {
-  WRONG_PARAMETERS: 'wrong DataProvider parameters, missing: lon, lat, zoom, layer'
+  WRONG_PARAMETERS: 'wrong DataProvider parameters, missing: lon, lat, zoom, layer',
 };
 
 const dataProvider = new DataProvider();
@@ -47,10 +47,10 @@ router.get('/', (req, res) => {
   const result = {
     result: 'error',
     message: ERRORS_MESSAGES.WRONG_PARAMETERS,
-  }
+  };
   res.header('Content-Type', 'application/json');
   res.send(result);
-})
+});
 
 // router.get('/lon/:lon/lat/:lat/zoom/:zoom', function(req, res) {
 //     const result = getNetworkData(req, res);
@@ -62,18 +62,18 @@ router.get('/lon/:lon/lat/:lat/zoom/:zoom/layer/:layer', (req, res) => {
   const result = getNetworkData(req, res);
   res.header('Content-Type', 'application/json');
   res.send(result);
-})
+});
 
 router.get('/layers',  (req, res) => {
   const result = dataProvider.getLayers();
   res.header('Content-Type', 'application/json');
   res.send(result);
-})
+});
 
 router.get('/layer/:layer/object/:object', (req, res) => {
   const result = dataProvider.getObjectInfo(req.params.layer, req.params.object);
   res.header('Content-Type', 'application/json');
   res.send(result);
-})
+});
 
 export default router;

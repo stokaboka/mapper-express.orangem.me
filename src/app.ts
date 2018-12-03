@@ -6,7 +6,6 @@ import {Request, Response} from 'express';
 import log4js from 'log4js';
 import path from 'path';
 
-
 import routes from './routes/index';
 
 import dataProviderRouter from './routes/dataProvider';
@@ -37,7 +36,7 @@ app.use('/dp', dataProviderRouter);
 // register express routes from defined application routes
 routes.forEach((route: any) => {
     (app as any)[route.method](route.route, (req: Request, res: Response, next: void) => {
-        const result = (new (route.controller as any))[route.action](req, res, next);
+        const result = (new (route.controller as any)())[route.action](req, res, next);
         if (result instanceof Promise) {
             result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
 

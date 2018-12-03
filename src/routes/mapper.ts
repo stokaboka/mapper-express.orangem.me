@@ -41,7 +41,7 @@ function goMapper(req: any, res: any) {
 
 router.get('/',
     (req, res) => {
-  res.send('parameters format: mapper/:lon/:lat/:zoom');
+  res.send('parameters format: mapper/lon/:lon/lat/:lat/zoom/:zoom');
 });
 
 router.get('/lon/:lon/lat/:lat/zoom/:zoom',

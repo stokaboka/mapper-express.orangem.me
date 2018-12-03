@@ -1,39 +1,62 @@
-import {DeviceGroupsController} from '../model/controller/DeviceGroupsController';
-import {LanbMapsCoorController} from '../model/controller/LanbMapsCoorController';
-import {LbCfgController} from '../model/controller/LbCfgController';
-import {MapDevicesController} from '../model/controller/MapDevicesController';
-import {MapDeviceTreeController} from '../model/controller/MapDeviceTreeController';
+import DeviceGroupsController from '../model/controller/DeviceGroupsController';
+import LanbMapsCoorController from '../model/controller/LanbMapsCoorController';
+import LbCfgController from '../model/controller/LbCfgController';
+import MapDevicesController from '../model/controller/MapDevicesController';
+import MapDeviceTreeController from '../model/controller/MapDeviceTreeController';
+
+import MapperController from '../model/controller/MapperController';
 
 const routes: any[] = [
     {
         method: 'get',
-        route: '/DeviceGroups',
+        route: '/dg',
         controller: DeviceGroupsController,
         action: 'all',
     },
     {
         method: 'get',
-        route: '/lanbmapscoor',
+        route: '/lmc',
         controller: LanbMapsCoorController,
         action: 'all',
     },
     {
         method: 'get',
-        route: '/lbcfg',
+        route: '/lc',
         controller: LbCfgController,
         action: 'all',
     },
     {
         method: 'get',
-        route: '/mapdevices',
+        route: '/md',
         controller: MapDevicesController,
         action: 'all',
     },
     {
         method: 'get',
-        route: '/mapdevicestree',
+        route: '/mdt',
         controller: MapDeviceTreeController,
         action: 'all',
+    },
+
+    {
+        method: 'get',
+        route: '/mapper/',
+        controller: MapperController,
+        action: 'info',
+    },
+
+    {
+        method: 'get',
+        route: '/mapper/lon/:lon/lat/:lat/zoom/:zoom',
+        controller: MapperController,
+        action: 'start',
+    },
+
+    {
+        method: 'get',
+        route: '/lon/:lon/lat/:lat/zoom/:zoom/reload/:reload',
+        controller: MapperController,
+        action: 'reload',
     },
 //     {
 //     method: 'post',
