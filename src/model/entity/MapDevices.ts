@@ -13,7 +13,7 @@ export default class MapDevices {
     public id: number;
 
     @Column({
-        name: 'billingid',
+        name: 'billing_id',
         type: 'int',
     })
     public billingId: number;

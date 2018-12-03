@@ -6,14 +6,14 @@ import {Column, Entity, PrimaryColumn} from 'typeorm';
 
 // `id`, `billingid`, `group_id`, `name`, `desc`, `coors`
 
-@Entity()
+@Entity('device_groups')
 export default class DeviceGroups {
 
     @PrimaryColumn()
     public id: number;
 
     @Column({
-        name: 'billingid',
+        name: 'billing_id',
         type: 'int',
     })
     public billingId: number;

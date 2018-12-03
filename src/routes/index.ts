@@ -54,7 +54,7 @@ const routes: any[] = [
 
     {
         method: 'get',
-        route: '/lon/:lon/lat/:lat/zoom/:zoom/reload/:reload',
+        route: '/mapper/lon/:lon/lat/:lat/zoom/:zoom/reload/:reload',
         controller: MapperController,
         action: 'reload',
     },

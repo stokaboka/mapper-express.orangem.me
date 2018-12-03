@@ -5,10 +5,10 @@
    "username": "vols",
    "password": "123456789",
    "database": "_noc_",
-   "synchronize": true,
-   "logging": false,
+   "synchronize": false,
+   "logging": true,
    "entities": [
-      "src/entity/**/*.ts"
+      "dist/model/entity/**/*.js"
    ],
    "migrations": [
       "src/migration/**/*.ts"

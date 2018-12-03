@@ -1,3 +1,5 @@
+import 'reflect-metadata';
+import {createConnection} from 'typeorm';
 
 import * as bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
@@ -10,7 +12,6 @@ import routes from './routes/index';
 
 import dataProviderRouter from './routes/dataProvider';
 import hello from './routes/hello';
-import mapperRouter from './routes/mapper';
 
 const log = log4js.getLogger('app');
 
@@ -30,20 +31,21 @@ app.use((req, res, next) => {
 });
 
 app.use('/', hello);
-app.use('/mapper', mapperRouter);
 app.use('/dp', dataProviderRouter);
 
+createConnection().then(async (connection) => {
 // register express routes from defined application routes
-routes.forEach((route: any) => {
-    (app as any)[route.method](route.route, (req: Request, res: Response, next: void) => {
-        const result = (new (route.controller as any)())[route.action](req, res, next);
-        if (result instanceof Promise) {
-            result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
+    routes.forEach((route: any) => {
+        (app as any)[route.method](route.route, (req: Request, res: Response, next: void) => {
+            const result = (new (route.controller as any)())[route.action](req, res, next);
+            if (result instanceof Promise) {
+                result.then((rslt) => rslt !== null && rslt !== undefined ? res.send(rslt) : undefined);
 
-        } else if (result !== null && result !== undefined) {
-            res.json(result);
-        }
+            } else if (result !== null && result !== undefined) {
+                res.json(result);
+            }
+        });
     });
-});
+}).catch((error) => console.log(error));
 
 export default app;

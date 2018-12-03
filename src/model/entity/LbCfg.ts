@@ -10,7 +10,7 @@ import {Column, Entity, PrimaryColumn} from 'typeorm';
 // `soap_login`, `soap_password`, `soap_file`,
 // `smssender`, `vibersender`
 
-@Entity()
+@Entity('lbcfg')
 export default class LbCfg {
     @PrimaryColumn()
     public id: number;

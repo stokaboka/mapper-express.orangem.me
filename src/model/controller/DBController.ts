@@ -3,7 +3,6 @@
  */
 
 import {NextFunction, Request, Response} from 'express';
-import {getRepository} from 'typeorm';
 
 export default class DBController {
 
