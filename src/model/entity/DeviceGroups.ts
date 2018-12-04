@@ -44,4 +44,11 @@ export default class DeviceGroups {
         length: 255,
     })
     public coors: string;
+
+    @Column({
+        name: 'point',
+        type: 'varchar',
+        length: 255,
+    })
+    public point: string;
 }
